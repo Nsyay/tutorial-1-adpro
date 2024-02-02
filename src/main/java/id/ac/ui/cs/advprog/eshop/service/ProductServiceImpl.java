@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@service
+@Service
 public class ProductServiceImpl implements ProductService{
 
     @Autowired
     private ProductRepository productRepository;
 
     @Override
-    public product create(Product product){
+    public Product create(Product product){
         productRepository.create(product);
         return product;
     }
