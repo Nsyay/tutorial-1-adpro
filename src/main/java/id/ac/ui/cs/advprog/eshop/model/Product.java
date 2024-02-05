@@ -10,10 +10,6 @@ public class Product {
     private String productName;
     private int productQuantity;
 
-    public Product() {
-        this.productId = UUID.randomUUID().toString();
-    }
-
     public String getProductName() {
         return productName;
     }
