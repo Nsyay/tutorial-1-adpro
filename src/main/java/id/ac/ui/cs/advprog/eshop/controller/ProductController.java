@@ -16,6 +16,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
+    //create product
     @GetMapping("/create")
     public String createProductPage(Model model){
         Product product = new Product();
@@ -29,10 +30,26 @@ public class ProductController {
         return "redirect:list";
     }
 
+    //show product
     @GetMapping("/list")
     public String productListPage(Model model){
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
         return "productList";
+    }
+
+    //edit product by id
+    @GetMapping("/edit/{productId}")
+    public String editProductPage(@PathVariable String productId, Model model) {
+        Product product = service.findById(productId);
+        model.addAttribute("product", product);
+        return "EditProduct";
+    }
+
+    @PostMapping("/edit/{productId}")
+    public String editProduct(@PathVariable String productId, @ModelAttribute Product product) {
+        product.setProductId(productId);
+        service.update(product);
+        return "redirect:../list";
     }
 }
