@@ -65,4 +65,48 @@ class ProductRepositoryTest {
         assertFalse(productIterator.hasNext());
     }
 
+    @Test
+    void testCreateAndEdit(){
+        Product product = new Product();
+        product.setProductId("d6a5e627-155b-432d-8f8a-5df64d2f01f9");
+        product.setProductName("Chiffon Cheese Cake");
+        product.setProductQuantity(10);
+        productRepository.create(product);
+
+        Product productEdit = productRepository.findById(product.getProductId());
+        productEdit.setProductId("d6a5e627-155b-432d-8f8a-5df64d2f01f9");
+        productEdit.setProductName("Chiffon Matcha Cake");
+        productEdit.setProductQuantity(3);
+        productRepository.update(productEdit);
+
+        assertEquals(productEdit.getProductQuantity(), product.getProductQuantity());
+        assertEquals(productEdit.getProductName(), product.getProductName());
+    }
+
+    @Test
+    void testCreateAndDelete(){
+        Product product = new Product();
+        product.setProductId("0ec45358-634b-48a8-984e-f16a1c1f59a2");
+        product.setProductName("Strawberry Pie");
+        product.setProductQuantity(1);
+        productRepository.create(product);
+
+        productRepository.deleteById(product.getProductId());
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testDeleteNotFound(){
+        Product product = new Product();
+        product.setProductId("573d6d0a-02b7-475b-80d3-53c773d3e48b");
+        product.setProductName("Martabak manis Coklat keju");
+        product.setProductQuantity(6);
+        productRepository.create(product);
+
+        productRepository.deleteById("0ec45358-634b-48a8-984e-f16a1c1f59a2");
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+    }
+
 }
