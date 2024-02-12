@@ -10,28 +10,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
     private ProductService service;
 
+    // home page
+    @GetMapping("")
+    public String homePage(Model model){
+        return "HomePage";
+    }
+
     //create product
-    @GetMapping("/create")
+    @GetMapping("/product/create")
     public String createProductPage(Model model){
         Product product = new Product();
         model.addAttribute("product", product);
         return "createProduct";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/product/create")
     public String createProductPost(@ModelAttribute Product product, Model model){
         service.create(product);
         return "redirect:list";
     }
 
     //show product
-    @GetMapping("/list")
+    @GetMapping("/product/list")
     public String productListPage(Model model){
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
@@ -39,14 +44,14 @@ public class ProductController {
     }
 
     //edit product by id
-    @GetMapping("/edit/{productId}")
+    @GetMapping("/product/edit/{productId}")
     public String editProductPage(@PathVariable String productId, Model model) {
         Product product = service.findById(productId);
         model.addAttribute("product", product);
         return "EditProduct";
     }
 
-    @PostMapping("/edit/{productId}")
+    @PostMapping("/product/edit/{productId}")
     public String editProduct(@PathVariable String productId, @ModelAttribute Product product) {
         product.setProductId(productId);
         service.update(product);
@@ -54,7 +59,7 @@ public class ProductController {
     }
 
     //delete product by id
-    @GetMapping("/delete/{productId}")
+    @GetMapping("/product/delete/{productId}")
     public String deleteProduct(@PathVariable String productId) {
         service.delete(productId);
         return "redirect:/product/list";
