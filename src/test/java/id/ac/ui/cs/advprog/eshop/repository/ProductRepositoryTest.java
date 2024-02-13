@@ -43,6 +43,12 @@ class ProductRepositoryTest {
     }
 
     @Test
+    void testFindById(){
+        Product findProduct = productRepository.findById("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        assertNull(findProduct);
+    }
+
+    @Test
     void testFindAllIfMoreThanOneProduct() {
         Product product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
