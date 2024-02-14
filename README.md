@@ -56,4 +56,4 @@ Dapat diperbaiki dengan memisahkan setup procedure di file yang berbeda, kemudia
 1. Code quality issue yang saya temukan dengan PMD
    * Unnecessary modifier 'public' on method 'create' in interface, karena semua variabel di interface sudah otomatis public static final. Saya melakukan perbaikan dengan menghapus modifier 'public'
    * Unused import 'import org.springframework.web.bind.annotation.*;', karena mengimport semua tetapi banyak yang tidak digunakan. Melakukan perbaikan dengan mengimport yang diperlukan saja
-   * 
+   * Remove unused import 'java.util.UUID' from Product.java in model. Sebelumnya saya menggunakan UUID di Product.java model, namun akhirnya saya menggunakan UUID pada repository, sehingga import UUID sebelumnya belum saya hapus
