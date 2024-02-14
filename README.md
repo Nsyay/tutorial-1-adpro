@@ -1,4 +1,5 @@
-# Reflection 1
+# Module 1
+## Reflection 1
 
 Dalam membuat program ini saya menerapkan coding standards yaitu penerapan clean code dan secure coding.
 - Contoh penerapan clean code yang saya buat pada program ini yaitu:
@@ -31,7 +32,7 @@ Saya mengatakan bahwa potongan code ini menerapkan security coding
 karena menggunakan UUID (Universally Unique Identifier) yang merupakan string panjang, unik, sulit ditebak
 untuk meminimalisir risiko terjadinya serangan IDOR
 
-# Reflection 2
+## Reflection 2
 1. Setelah membuat unit test, saya menjadi semakin percaya diri
 terhadap keakuratan code yang saya buat. Saya telah menyadari 
 bahwa saat ini untuk mengecek keakuratan code saya dapat melakukan
@@ -47,3 +48,7 @@ terdapat bug atau error didalamnya
 yang sama tentu akan mempengaruhi clean code.
 Akan terjadi pengulangan code karena setup procedure dan instance variables yang sama.
 Dapat diperbaiki dengan memisahkan setup procedure di file yang berbeda, kemudian tinggal dipanggil
+
+--------------------------------------------------------
+# Module 2
+## Reflection 1
