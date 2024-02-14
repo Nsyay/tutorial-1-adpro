@@ -52,3 +52,7 @@ Dapat diperbaiki dengan memisahkan setup procedure di file yang berbeda, kemudia
 --------------------------------------------------------
 # Module 2
 ## Reflection 1
+
+1. Code quality issue yang saya temukan dengan PMD
+   * Unnecessary modifier 'public' on method 'create' in interface, karena semua variabel di interface sudah otomatis public static final. Saya melakukan perbaikan dengan menghapus modifier 'public'
+   * 
