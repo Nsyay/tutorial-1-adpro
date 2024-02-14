@@ -1,3 +1,4 @@
+[Link Eshop](https://eshop-nasya-tasks.koyeb.app/)
 # Module 1
 ## Reflection 1
 
@@ -57,4 +58,6 @@ Dapat diperbaiki dengan memisahkan setup procedure di file yang berbeda, kemudia
    * Unnecessary modifier 'public' on method 'create' in interface, karena semua variabel di interface sudah otomatis public static final. Saya melakukan perbaikan dengan menghapus modifier 'public'
    * Unused import 'import org.springframework.web.bind.annotation.*;', karena mengimport semua tetapi banyak yang tidak digunakan. Melakukan perbaikan dengan mengimport yang diperlukan saja
    * Remove unused import 'java.util.UUID' from Product.java in model. Sebelumnya saya menggunakan UUID di Product.java model, namun akhirnya saya menggunakan UUID pada repository, sehingga import UUID sebelumnya belum saya hapus
-2. 
+2. Menurut saya, CI/CD workflows yang sudah saya implementasi telah memenuhi definisi dari Continuous Integration dan Continuous Deployment. Pertama, semua workflow akan di-trigger setiap push dan pull request. Kemudian, program akan dicek juga quality nya melalui workflow PMD dan scorecard.
+   Selain itu, workflow akan mengeksekusi `./gradlew test` yang akan menjalankan unit test yang sudah dibuat sebelumnya.
+   Dalam pengimplementasian Continuous Deployment juga menurut saya sudah memenuhi definisinya, dimana CD adalah proses deploy yang telah terintegrasi dengan repository sehingga setiap perubahan yang dibuat pada code akan otomatis menjalankan proses deploy. CD eshop ini saya menggunakan PaaS koyeb. PaaS koyeb telah menjalankan fungsi continuous deployment dengan sangat baik, sehingga memenuhi definisi CI/CD workflows.
