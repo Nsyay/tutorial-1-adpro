@@ -20,13 +20,15 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public List<Car> carIterator = carRepository.findAll();
-    List<Car> allCar = new ArrayList<>();
-    carIterator.forEachRemaining(allCar::add);
-    return allCar;
+    public List<Car> findAll(){
+        Iterator<Car> carIterator = carRepository.findAll();
+        List<Car> allCar = new ArrayList<>();
+        carIterator.forEachRemaining(allCar::add);
+        return allCar;
+    }
 
     @Override
-    public Car findByID(String carId){
+    public Car findById(String carId){
         Car car = carRepository.findById(carId);
         return car;
     }
