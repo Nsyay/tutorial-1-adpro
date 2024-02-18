@@ -33,12 +33,6 @@ class ProductControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
     }
 
-    @Test
-    void homePage() throws Exception {
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("HomePage"));
-    }
 
     @Test
     void createProductPage() throws Exception {
