@@ -18,7 +18,7 @@ import java.util.List;
 class CarController{
 
     @Autowired
-    private CarServiceImpl carservice;
+    private CarService carservice;
 
     @GetMapping("/createCar")
     public String createCarPage(Model model) {
