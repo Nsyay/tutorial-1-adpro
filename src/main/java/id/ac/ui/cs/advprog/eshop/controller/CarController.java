@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 @Controller
 @RequestMapping("/car")
-class CarController extends ProductController {
+class CarController{
 
     @Autowired
-    private CarServiceImpl carservice;
+    private CarService carservice;
 
     @GetMapping("/createCar")
     public String createCarPage(Model model) {
