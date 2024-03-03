@@ -9,12 +9,12 @@ public enum OrderStatus{
     SUCCESS("SUCCESS"),
     CANCELLED("CANCELLED");
 
-    private final string value;
-    private OrderStatus(string value){
+    private final String value;
+    private OrderStatus(String value){
         this.value = value;
     }
 
-    public static boolean contains(Stringn param){
+    public static boolean contains(String param){
         for(OrderStatus orderStatus : OrderStatus.values()){
             if(orderStatus.name().equals(param)){
                 return true;
