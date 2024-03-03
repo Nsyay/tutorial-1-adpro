@@ -15,6 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -60,7 +61,7 @@ class OrderServiceTest{
     @Test
     void testCreateOrderIfAlreadyExists(){
         Order order = orders.get(1);
-        doReturn(order).when(orderRepository).save(order);
+        doReturn(order).when(orderRepository).findById(order.getId());
 
         assertNull(orderService.createOrder(order));
         verify(orderRepository, times(0)).save(order);
@@ -97,7 +98,7 @@ class OrderServiceTest{
     void testUpdateStatusInvalidOrderId(){
         doReturn(null).when(orderRepository).findById("zczc");
 
-        assertThrows(IllegalArgumentException.class,
+        assertThrows(NoSuchElementException.class,
                 ()->orderService.updateStatus("zczc", OrderStatus.SUCCESS.getValue()));
         verify(orderRepository, times(0)).save(any(Order.class));
     }
@@ -123,7 +124,7 @@ class OrderServiceTest{
     @Test
     void TestFindAllByAuthorIfAuthorCorrect(){
         Order order = orders.get(1);
-        doReturn(order).when(orderRepository).findAllByAuthor(order.getAuthor());
+        doReturn(orders).when(orderRepository).findAllByAuthor(order.getAuthor());
 
         List<Order> results = orderService.findAllByAuthor(order.getAuthor());
         for(Order result : results){
