@@ -51,7 +51,7 @@ public class PaymentRepositoryTest {
         Map<String, String> paymentData2 = new HashMap<String, String>();
         paymentData2.put("bankName", "ABC");
         paymentData2.put("referenceCode", "00000000");
-        Payment payment2 = new Payment("bd0bbf26-08e0-4d35-8042-0913c25ff335",
+        Payment payment2 = new Payment("d54759ff-2cfd-4fb4-b028-e9f6bbcb3702",
                 "BANK_TRANSFER", orders.get(0), paymentData2);
         payments.add(payment2);
     }
@@ -118,6 +118,6 @@ public class PaymentRepositoryTest {
             paymentRepository.save(payment);
         }
         List<Payment> paymentList = paymentRepository.getAllPayments();
-        assertEquals(1, paymentList.size());
+        assertEquals(2, paymentList.size());
     }
 }
