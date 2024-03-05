@@ -76,6 +76,7 @@ public class PaymentTest {
     @Test
     void testPaymentVoucherMethod(){
         Map<String, String> paymentData = new HashMap<String, String>();
+        paymentData.put("voucherCode", "ESHOP1234ABC5678");
         Payment payment = new Payment("bd0bbf26-08e0-4d35-8042-0913c25ff335",
                 "VOUCHER_CODE", order, paymentData);
         assertEquals("VOUCHER_CODE", payment.getMethod());
