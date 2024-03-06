@@ -34,7 +34,6 @@ public class PaymentRepository{
     public List<Payment> findVoucherPayment(){
         List<Payment> voucherPayments = new ArrayList<>();
         for(Payment savedPayment : payments){
-            System.out.println(savedPayment.getMethod());
             if(savedPayment.getMethod().equals("VOUCHER_CODE")){
                 voucherPayments.add(savedPayment);
             }
