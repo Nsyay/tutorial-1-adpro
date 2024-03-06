@@ -100,3 +100,37 @@ Dapat diperbaiki dengan memisahkan setup procedure di file yang berbeda, kemudia
    * Suatu perubahan atau penambahan yang dibuat pada program berkemungkinan besar merusak fungsionalitas program yang lain
    
    _example_ : Sebelum diterapkannya SOLID, `CarController` dan `ProductController` masih digabungkan, sehingga banyak test yang gagal karena path tidak sesuai.
+
+--------------------------------------------------------
+# Module 4
+## Reflection 1
+
+1. Menggunakan Percival(2017) proposed self-reflective question, saya akan menjawab apakah TDD flow membantu saya dalam membuat tes atau tidak
+   * **Correctness**
+     * Do i have enough functional tests to reassure myself that my application really works, from the point of view of the user?
+     menurut saya, saya sudah memiliki tes yang menjamin bahwa aplikasi ini bekerja dengan baik, terutama ketika nanti digunakan oleh user
+     * Am I testing all edge cases thoroughly?
+     Menurut saya, iya
+     * Do I have tests that check whether all my components fit together properly? Could some integrated tests do this, or are functional tests enough?
+     Iya, menurut saya integration test perlu untuk memverifikasi integrasi antar 2 classes. Hal ini juga dapat membantu memastikan bahwa output sesuai dengan yang kita inginkan
+   * **Maintainability**
+     * Are my tests giving me the confidence to refactor my code, fearlessly and frequently?
+     Ya, karena tidak akan memengaruhi code saya yang sudah ada sebelumnya
+     * Are my tests helping me to drive out a good design? If I have a lot of integration tests but less unit tests, do I need to make more unit tests to get better feedback on my code design?
+     Ya, tes membantu saya mengimplementasikan good design. Unit test juga perlu untuk dikembangkan guna memelihara kualitas dan keterbacaan kode. Unit test juga dapat membantu mencegah regresi sehingga 
+     tidak akan memengaruhi atau merusak fungsionalitas yang sudah ada sebelumnya
+   * **Productive Workflow**
+     * Are my feedback cycles as fast as I would like them? When do I get warned about bugs, and is there any practical way to make that happen sooner?
+     Peringatan dan feedback sudah cepat
+     * Is there some way that I could write faster integration tests that would give me feedback quicker?
+     melakukan testing ulang secara berkala
+     * Can I run a subset of the full test suite when I need to?
+     ya
+     * Am I spending to much time waiting for tests to run, and thus less time in a productive flow state?
+     tidak
+
+2. Ya, menurut saya. test yang saya lakukan sudah memenuhi F.I.R.S.T Priniciple. Test saya sudah berjalan cepat tanpa menginterupsi workflow.
+    Test case saya tidak akan mengubah fungsionalitas lain. test saya dapat dijalankan berulang kali dengan hasil yang konsisten. tes saya memiliki assertion apakah passed or failed
+    Test saya sudah mencakup happy dan unhappy paths. Namun, secara keseluruhan saya belum yakin bahwa testing yang saya lakukan benar-benar memenuhi semua happy maupun unhappy path, sehingga masih ada
+    yang dapat saya kembangkan lagi.
+     
