@@ -17,18 +17,32 @@ public class PaymentServiceImpl implements PaymentService{
     private PaymentRepository paymentRepository;
 
     public Payment addPayment(Order order, String method, Map<String, String> paymentData){
-        return null;
+        Payment payment = new Payment("", method, order, paymentData);
+        paymentRepository.save(payment);
+        return payment;
     }
 
     public Payment setStatus(Payment payment, String status){
-        return null;
+        Payment newPayment = paymentRepository.getPayment(payment.getId());
+        if(newPayment != null){
+            if (status.equals("SUCCESS")){
+                newPayment.getOrder().setStatus("SUCCESS");
+            } else if (status.equals("REJECTED")){
+                newPayment.getOrder().setStatus("FAILED");
+            }
+            newPayment.setStatus(status);
+            paymentRepository.save(newPayment);
+            return newPayment;
+        } else{
+            throw new NoSuchElementException();
+        }
     }
 
     public List<Payment> getAllPayments(){
-        return null;
+        return paymentRepository.getAllPayments();
     }
 
     public Payment getPayment(String paymentId){
-        return null;
+        return paymentRepository.getPayment(paymentId);
     }
 }
